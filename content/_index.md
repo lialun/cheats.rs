@@ -14,12 +14,12 @@ insert_anchor_links = "right"
 
 <symbol-legend class="short">
 
-Contains clickable links to
-**The Book** {{ book(page="") }},
-**Rust by Example** {{ ex(page="") }},
-**Std Docs** {{ std(page="std") }},
-**Nomicon** {{ nom(page="") }},
-**Reference** {{ ref(page="") }}.
+包含了指向
+**The Book** {{ book(page="") }}、
+**Rust by Example** {{ ex(page="") }}、
+**Std Docs** {{ std(page="std") }}、
+**Nomicon** {{ nom(page="") }}、
+**Reference** {{ ref(page="") }}的链接。
 
 </symbol-legend>
 
@@ -29,28 +29,28 @@ Contains clickable links to
 <column>
 
 **Clickable symbols** <br>
-<br> <legend-symbol> {{ book(page="") }} </legend-symbol> **The Book**.
-<br> <legend-symbol> {{ ex(page="") }} </legend-symbol> **Rust by Example**.
-<br> <legend-symbol> {{ std(page="std") }} </legend-symbol>  **Standard Library (API)**.
-<br> <legend-symbol> {{ nom(page="") }} </legend-symbol> **Nomicon**.
-<br> <legend-symbol> {{ ref(page="") }} </legend-symbol> **Reference**.
-<br> <legend-symbol> {{ rfc(page="") }} </legend-symbol> Official **RFC** documents.
-<br> <legend-symbol> {{ link(url="https://cheats.rs") }} </legend-symbol> The **internet**.
-<br> <legend-symbol> {{ above(target="#") }} </legend-symbol> On this page, **above**.
-<br> <legend-symbol> {{ below(target="#") }} </legend-symbol> On this page, **below**.
+<br> <legend-symbol> {{ book(page="") }} </legend-symbol> **The Book**。
+<br> <legend-symbol> {{ ex(page="") }} </legend-symbol> **Rust by Example**。
+<br> <legend-symbol> {{ std(page="std") }} </legend-symbol>  **标准库(API)**。
+<br> <legend-symbol> {{ nom(page="") }} </legend-symbol> **Nomicon**。
+<br> <legend-symbol> {{ ref(page="") }} </legend-symbol> **Reference**。
+<br> <legend-symbol> {{ rfc(page="") }} </legend-symbol> 官方 **RFC** 文档。
+<br> <legend-symbol> {{ link(url="https://cheats.rs") }} </legend-symbol> **互联网**。
+<br> <legend-symbol> {{ above(target="#") }} </legend-symbol> 在页面**上方**。
+<br> <legend-symbol> {{ below(target="#") }} </legend-symbol> 在页面**下方**。
 
 </column>
 <column>
 
 **Other symbols** <br>
-<br> <legend-symbol> {{ deprecated() }}   </legend-symbol>Largely **deprecated**.
-<br> <legend-symbol> {{ edition(ed="'18") }} </legend-symbol>Has **minimum edition** requirement.
-<br> <legend-symbol> {{ experimental() }} </legend-symbol>Requires **Rust nightly** (or is incomplete).
-<br> <legend-symbol> {{ bad() }}   </legend-symbol>Intentionally **wrong example** or **pitfall**.
-<br> <legend-symbol> {{ esoteric() }}   </legend-symbol>Slightly **esoteric**, rarely used or advanced.
-<br> <legend-symbol> {{ hot() }}   </legend-symbol>Something with **outstanding utility**.
-<br> <legend-symbol> {{ expands_to() }} </legend-symbol>The parent item **expands to** &hellip;
-<br> <legend-symbol> {{ opinionated() }} </legend-symbol>**Opinionated**.
+<br> <legend-symbol> {{ deprecated() }}   </legend-symbol>基本**已废弃**。
+<br> <legend-symbol> {{ edition(ed="'18") }} </legend-symbol>具有**最新版本**要求。
+<br> <legend-symbol> {{ experimental() }} </legend-symbol>需要**Rust nightly**版本(或尚未完成).
+<br> <legend-symbol> {{ bad() }}   </legend-symbol>故意**错误示例**或**陷阱**。
+<br> <legend-symbol> {{ esoteric() }}   </legend-symbol>稍微**深奥**，很少使用或高级特性。
+<br> <legend-symbol> {{ hot() }}   </legend-symbol>较为**常用特性**.
+<br> <legend-symbol> {{ expands_to() }} </legend-symbol>由父项**展开至** &hellip;
+<br> <legend-symbol> {{ opinionated() }} </legend-symbol>**作者简介**.
 <br> <legend-symbol> {{ todo() }} </legend-symbol>Is **missing good link** or explanation.
 
 </column>
@@ -69,9 +69,9 @@ Contains clickable links to
 <noprint>
 <page-controls>
     <!-- <a id="" href="" style="float: left; margin-left:5px;">X-Ray Mode 👓</a> -->
-    <a id="toggle_ligatures" href="javascript:toggle_ligatures()">Font Ligatures (<code>..=, =></code>)</a>
+    <a id="toggle_ligatures" href="javascript:toggle_ligatures()">字体连字（<code>..=, =></code>）</a>
     <!-- <a id="expand_everything" class="hide_on_small" href="javascript:toggle_expand_all()">Expand all the things?</a> -->
-    <a href="javascript:toggle_night_mode()">Night Mode &#x1f4a1;</a>
+    <a href="javascript:toggle_night_mode()">夜间模式 &#x1f4a1;</a>
 </page-controls>
 </noprint>
 
@@ -79,19 +79,19 @@ Contains clickable links to
 <toc><column>
 
 **Language Constructs**
-* [Data Structures](#data-structures)
-* [References & Pointers](#references-pointers)
-* [Functions & Behavior](#functions-behavior)
-* [Control Flow](#control-flow)
-* [Organizing Code](#organizing-code)
-* [Type Aliases and Casts](#type-aliases-and-casts)
-* [Macros & Attributes](#macros-attributes)
-* [Pattern Matching](#pattern-matching)
-* [Generics & Constraints](#generics-constraints)
-* [Higher-Ranked Items](#higher-ranked-items){{ esoteric() }}
-* [Strings & Chars](#strings-chars)
-* [Documentation](#documentation)
-* [Miscellaneous](#miscellaneous)
+* [数据结构](#data-structures)
+* [引用 & 指针](#references-pointers)
+* [函数 & 行为](#functions-behavior)
+* [控制流](#control-flow)
+* [代码组织](#organizing-code)
+* [类型别名和转换](#type-aliases-and-casts)
+* [宏(Macros) & 属性(Attributes)](#macros-attributes)
+* [模式匹配](#pattern-matching)
+* [泛型与约束](#generics-constraints)
+* [高阶项(Higher-Ranked Items)](#higher-ranked-items){{ esoteric() }}
+* [字符串 & 字符](#strings-chars)
+* [注释(Documentation)](#documentation)
+* [杂项](#miscellaneous)
 
 **Behind the Scenes**
 * [The Abstract Machine](#the-abstract-machine)
@@ -99,7 +99,7 @@ Contains clickable links to
 * [Memory & Lifetimes](#memory-lifetimes)
 
 
-**Memory Layout**
+**内存布局**
 * [Basic Types](#basic-types)
 * [Custom Types](#custom-types)
 * [References & Pointers](#references-pointers-ui)
@@ -154,8 +154,7 @@ Contains clickable links to
 
 ## Hello, Rust!
 
-If you are new to Rust, or if you want to try the things below:
-
+如果你刚接触Rust，你可以尝试一下：
 
 <tabs>
 
@@ -183,54 +182,54 @@ fn main() {
 <!-- NEW TAB -->
 <tab>
 <input type="radio" id="tab-hello-3" name="tab-hello">
-<label for="tab-hello-3"><b>Strengths</b></label>
+<label for="tab-hello-3"><b>优势</b></label>
 <panel><div>
 
-**Things Rust does measurably really well**
+**Rust在以下方面表现出显著的优势**
 
-- Compiled code [about same performance](https://benchmarksgame-team.pages.debian.net/benchmarksgame/box-plot-summary-charts.html) as C / C++, and excellent [memory and energy efficiency](https://docente.ifsc.edu.br/mello/livros/java/paperSLE.pdf).
-- Can [avoid 70% of all safety issues](https://www.chromium.org/Home/chromium-security/memory-safety) present in C / C++, and most memory issues.
-- Strong type system prevents [data races](https://doc.rust-lang.org/nomicon/races.html), brings ['fearless concurrency'](https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html) (amongst others).
-- Seamless C interop, and [dozens of supported platforms](https://doc.rust-lang.org/rustc/platform-support.html) (based on LLVM).
-- ["Most loved or admired language"](https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages) for <strike>4</strike> <strike>5</strike> <strike>6</strike> <strike>7</strike> 8 years in a row. 🤷‍♀️
-- Modern tooling: `cargo` (builds _just work_), `clippy` (600+ code quality lints), `rustup` (easy toolchain mgmt).
+- 编译后的代码与C/C++[性能相当](https://benchmarksgame-team.pages.debian.net/benchmarksgame/box-plot-summary-charts.html)，且具有出色的[内存和能效](https://docente.ifsc.edu.br/mello/livros/java/paperSLE.pdf)。
+- 能够避免C/C++中存在的[70%的安全问题](https://www.chromium.org/Home/chromium-security/memory-safety)，以及大部分的内存问题。
+- 强类型系统可以防止[数据竞争](https://doc.rust-lang.org/nomicon/races.html)，带来['无畏并发'](https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html) (等等)。
+- 与C语言无缝对接, 以及[数十种支持的平台](https://doc.rust-lang.org/rustc/platform-support.html)（基于LLVM）。
+- 连续<strike>4</strike> <strike>5</strike> <strike>6</strike> <strike>7</strike> 8年评为["最受喜爱的语言"](https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages) 。 🤷‍♀️
+- 现代的工具链: `cargo` (恰到好处的构建工具), `clippy` (600+代码质量提示), `rustup` (简单易用的工具链管理)。
 
 </div></panel></tab>
 
 <!-- NEW TAB -->
 <tab>
 <input type="radio" id="tab-hello-4" name="tab-hello">
-<label for="tab-hello-4"><b>Weaknesses</b></label>
+<label for="tab-hello-4"><b>弱点</b></label>
 <panel><div>
 
-**Points you might run into**
+**你可能会遇到的问题**
 
-- Steep learning curve;<sup>1</sup> compiler enforcing (esp. memory) rules that would be "best practices" elsewhere.
-- Missing Rust-native libs in some domains, target platforms (esp. embedded), IDE features.<sup>1</sup>
-- Longer compile times than "similar" code in other languages.<sup>1</sup>
-- Careless (use of `unsafe` in) libraries can secretly break safety guarantees.
+- 陡峭的学习曲线；<sup>1</sup> 编译器强制约束的规则（尤其内存相关），在其他语言会被视为“最佳实践”。
+- 在某些领域缺少Rust原生库、目标平台（尤其嵌入式）、IDE特性。<sup>1</sup>
+- 相比于其他的语言，“近似”代码的编译时间比会更长。<sup>1</sup>
+- 不当使用（使用`unsafe`的）库可能会破坏Rust安全性保证。
 - ~~No formal language specification~~, {{ link(url="https://spec.ferrocene.dev/") }} ~~can prevent legal use in some domains (aviation, medical, &hellip;)~~. {{ link(url="https://ferrous-systems.com/ferrocene/") }}
-- Rust Foundation may offensively use their IP to affect _'Rust'_ projects (e.g, forbid names, impose policies). {{ link(url="https://devclass.com/2023/04/11/dont-call-it-rust-community-complains-about-draft-trademark-policy-restricting-use-of-word-marks/") }}{{ link(url="https://old.reddit.com/r/rust/comments/12e7tdb/rust_trademark_policy_feedback_form/") }}<sup>2</sup>
+- Rust基金会可能会积极地使用他们的知识产权来影响“Rust”项目（例如，禁止使用某些名称，强制实施政策）。 {{ link(url="https://devclass.com/2023/04/11/dont-call-it-rust-community-complains-about-draft-trademark-policy-restricting-use-of-word-marks/") }}{{ link(url="https://old.reddit.com/r/rust/comments/12e7tdb/rust_trademark_policy_feedback_form/") }}<sup>2</sup>
 
 
-<sup>1</sup> Compare [Rust Survey](https://blog.rust-lang.org/2020/04/17/Rust-survey-2019.html#why-not-use-rust). <br>
-<sup>2</sup> Avoiding their marks (e.g, in your name, URL, logo, dress) is probably sufficient.
+<sup>1</sup> 基于[Rust调研](https://blog.rust-lang.org/2020/04/17/Rust-survey-2019.html#why-not-use-rust). <br>
+<sup>2</sup> 避免使用他们的标记（例如，在你的名字、网址、标志、装饰中）可能就足够了。
 
 </div></panel></tab>
 
 <!-- NEW TAB -->
 <tab>
 <input type="radio" id="tab-hello-5" name="tab-hello">
-<label for="tab-hello-5"><b>Installation</b></label>
+<label for="tab-hello-5"><b>安装</b></label>
 <panel><div>
 
 **Download**
-- Get installer from [**rustup.rs**](https://rustup.rs/) (highly recommended){{ hot() }}
+- 在[**rustup.rs**](https://rustup.rs/)获取下载链接 (强烈推荐){{ hot() }}
 
 
 **IDEs**
-- [**Rust Rover**](https://www.jetbrains.com/rust/) (paid)
-- [Visual Studio Code](https://code.visualstudio.com/) with [**rust-analyzer**](https://rust-analyzer.github.io/) (free)
+- [**Rust Rover**](https://www.jetbrains.com/rust/) (付费)
+- [Visual Studio Code](https://code.visualstudio.com/) 与 [**rust-analyzer**](https://rust-analyzer.github.io/)插件 (免费)
 
 
 </div></panel></tab>
@@ -238,7 +237,7 @@ fn main() {
 <!-- NEW TAB -->
 <tab>
 <input type="radio" id="tab-hello-6" name="tab-hello">
-<label for="tab-hello-6"><b>First Steps</b></label>
+<label for="tab-hello-6"><b>第一步</b></label>
 <panel><div>
 
 <!-- Note - Please ONLY submit PRs linking to high-quality, "permanent" sites
@@ -248,14 +247,13 @@ fn main() {
             "the best of their kind".
              -->
 
-**Modular Beginner Resources**
+**初学者
 - [**Tour of Rust**](https://tourofrust.com/TOC_en.html) - Live code and explanations, side by side.
 - [**Rust in Easy English**](https://dhghomon.github.io/easy_rust/Chapter_3.html) - 60+ concepts, simple English, example-driven.
 
-In addition, have a look at the usual suspects. {{ book(page="") }} {{ ex(page="") }} {{ std(page="std") }}
+另外，可以参考一些常用文档。{{ book(page="") }} {{ ex(page="") }} {{ std(page="std") }}
 
-
-> **Opinion** {{ opinionated() }} &mdash; If you have never seen or used any Rust it might be good to visit one of the links above before continuing; the next chapter might feel a bit terse otherwise.
+> **建议** {{ opinionated() }} &mdash; 如果你从未见过或使用过Rust，那么在继续阅读之前，最好先访问上述链接中至少一个；后续内容较为简略，不适用于初学者。
 
 </div></panel></tab>
 
@@ -263,20 +261,20 @@ In addition, have a look at the usual suspects. {{ book(page="") }} {{ ex(page="
 </noprint>
 
 
-### Data Structures
+### 数据结构 {#data-structures}
 
-Data types and memory locations defined via keywords.
+通过关键字定义的数据类型和内存位置。
 
 <fixed-2-column>
 
-| Example | Explanation |
+| 示例 | 解释 |
 |---------|-------------|
-| `struct S {}` | Define a **struct** {{ book(page="ch05-00-structs.html") }} {{ ex(page="custom_types/structs.html") }} {{ std(page="std/keyword.struct.html") }} {{ ref(page="expressions/struct-expr.html") }} with named fields. |
-| {{ tab() }} `struct S { x: T }` | Define struct with named field `x` of type `T`. |
-| {{ tab() }} `struct S` &#8203;`(T);` | Define "tupled" struct with numbered field `.0` of type `T`. |
-| {{ tab() }} `struct S;` | Define **zero sized** {{ nom(page="exotic-sizes.html#zero-sized-types-zsts")}} unit struct. Occupies no space, optimized away. |
-| `enum E {}` | Define an **enum**, {{ book(page="ch06-01-defining-an-enum.html") }} {{ ex(page="custom_types/enum.html#enums") }} {{ ref(page="items/enumerations.html") }} _c_. [algebraic data types](https://en.wikipedia.org/wiki/Algebraic_data_type), [tagged unions](https://en.wikipedia.org/wiki/Tagged_union). |
-| {{ tab() }}  `enum E { A, B`&#8203;`(), C {} }` | Define variants of enum; can be unit- `A`, tuple- `B` &#8203;`()` and struct-like `C{}`. |
+| `struct S {}` | 定义一个 **结构体(struct)** {{ book(page="ch05-00-structs.html") }} {{ ex(page="custom_types/structs.html") }} {{ std(page="std/keyword.struct.html") }} {{ ref(page="expressions/struct-expr.html") }}。 |
+| {{ tab() }} `struct S { x: T }` | 定义一个包含命名为`x`类型为`T`字段的结构体。 |
+| {{ tab() }} `struct S` &#8203;`(T);` | 定义一个 "元组(tupled)"结构体，其中编号为`.0`的字段类型为`T`. |
+| {{ tab() }} `struct S;` | 定义一个 **零大小** {{ nom(page="exotic-sizes.html#zero-sized-types-zsts")}} 的单元结构体。已经过优化，不会占用任何空间。 |
+| `enum E {}` | 定义一个 **枚举(enum)**{{ book(page="ch06-01-defining-an-enum.html") }} {{ ex(page="custom_types/enum.html#enums") }} {{ ref(page="items/enumerations.html") }}，参见[代数数据类型](https://zh.wikipedia.org/wiki/%E4%BB%A3%E6%95%B0%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)、[标签联合](https://zh.wikipedia.org/wiki/%E6%A0%87%E7%AD%BE%E8%81%94%E5%90%88)。 |
+| {{ tab() }}  `enum E { A, B`&#8203;`(), C {} }` | 定义一个变体枚举; 可以是单元- `A`、元组- `B` &#8203;`()` 和类结构体`C{}`. |
 | {{ tab() }}  `enum E { A = 1 }` | If variants are only unit-like, allow **discriminant values**, {{ ref(page="items/enumerations.html#custom-discriminant-values-for-fieldless-enumerations") }} e.g., for FFI. |
 | {{ tab() }}  `enum E {}` | Enum w/o variants is **uninhabited**, {{ ref(page="glossary.html#uninhabited") }} can't be created, _c._ 'never' {{ below(target="#miscellaneous") }} {{ esoteric() }} |
 | `union U {}` | Unsafe C-like **union**  {{ ref(page="items/unions.html") }} for FFI compatibility. {{ esoteric() }} |
@@ -468,7 +466,7 @@ Control execution within a function.
 
 ### Organizing Code
 
-Segment projects into smaller units and minimize dependencies.
+将项目划分为更小的单元并最小化依赖。
 
 <fixed-2-column>
 
