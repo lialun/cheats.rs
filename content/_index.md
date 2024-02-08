@@ -269,64 +269,64 @@ fn main() {
 
 | 示例 | 解释 |
 |---------|-------------|
-| `struct S {}` | 定义一个 **结构体(struct)** {{ book(page="ch05-00-structs.html") }} {{ ex(page="custom_types/structs.html") }} {{ std(page="std/keyword.struct.html") }} {{ ref(page="expressions/struct-expr.html") }}。 |
+| `struct S {}` | 定义一个**结构体(struct)** {{ book(page="ch05-00-structs.html") }} {{ ex(page="custom_types/structs.html") }} {{ std(page="std/keyword.struct.html") }} {{ ref(page="expressions/struct-expr.html") }}。 |
 | {{ tab() }} `struct S { x: T }` | 定义一个包含命名为`x`类型为`T`字段的结构体。 |
 | {{ tab() }} `struct S` &#8203;`(T);` | 定义一个 "元组(tupled)"结构体，其中编号为`.0`的字段类型为`T`. |
-| {{ tab() }} `struct S;` | 定义一个 **零大小** {{ nom(page="exotic-sizes.html#zero-sized-types-zsts")}} 的单元结构体。已经过优化，不会占用任何空间。 |
-| `enum E {}` | 定义一个 **枚举(enum)**{{ book(page="ch06-01-defining-an-enum.html") }} {{ ex(page="custom_types/enum.html#enums") }} {{ ref(page="items/enumerations.html") }}，参见[代数数据类型](https://zh.wikipedia.org/wiki/%E4%BB%A3%E6%95%B0%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)、[标签联合](https://zh.wikipedia.org/wiki/%E6%A0%87%E7%AD%BE%E8%81%94%E5%90%88)。 |
-| {{ tab() }}  `enum E { A, B`&#8203;`(), C {} }` | 定义一个变体枚举; 可以是单元- `A`、元组- `B` &#8203;`()` 和类结构体`C{}`. |
-| {{ tab() }}  `enum E { A = 1 }` | If variants are only unit-like, allow **discriminant values**, {{ ref(page="items/enumerations.html#custom-discriminant-values-for-fieldless-enumerations") }} e.g., for FFI. |
-| {{ tab() }}  `enum E {}` | Enum w/o variants is **uninhabited**, {{ ref(page="glossary.html#uninhabited") }} can't be created, _c._ 'never' {{ below(target="#miscellaneous") }} {{ esoteric() }} |
-| `union U {}` | Unsafe C-like **union**  {{ ref(page="items/unions.html") }} for FFI compatibility. {{ esoteric() }} |
-| `static X: T = T();`  | **Global variable** {{ book(page="ch19-01-unsafe-rust.html#accessing-or-modifying-a-mutable-static-variable") }} {{ ex(page="custom_types/constants.html#constants") }} {{ ref(page="items/static-items.html#static-items") }}  with `'static` lifetime, single memory location. |
-| `const X: T = T();`  | Defines **constant**, {{ book(page="ch03-01-variables-and-mutability.html#constants") }} {{ ex(page="custom_types/constants.html") }} {{ ref(page="items/constant-items.html") }} copied into a temporary when used. |
-| `let x: T;`  | Allocate `T` bytes on stack{{ note( note="1") }} bound as `x`. Assignable once, not mutable.  |
-| `let mut x: T;`  | Like `let`, but allow for **mutability** {{ book(page="ch03-01-variables-and-mutability.html") }} {{ ex(page="variable_bindings/mut.html") }} and mutable borrow.{{ note( note="2") }} |
-| {{ tab() }} `x = y;` | Moves `y` to `x`, inval. `y` if `T` is not **`Copy`**, {{ std(page="std/marker/trait.Copy.html") }} and copying `y` otherwise. |
+| {{ tab() }} `struct S;` | 定义一个**零大小** {{ nom(page="exotic-sizes.html#zero-sized-types-zsts")}} 的单元结构体。已经优化过，不会占用任何空间。 |
+| `enum E {}` | 定义一个**枚举(enum)**{{ book(page="ch06-01-defining-an-enum.html") }} {{ ex(page="custom_types/enum.html#enums") }} {{ ref(page="items/enumerations.html") }}，参见[代数数据类型](https://zh.wikipedia.org/wiki/%E4%BB%A3%E6%95%B0%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)、[标签联合](https://zh.wikipedia.org/wiki/%E6%A0%87%E7%AD%BE%E8%81%94%E5%90%88)。 |
+| {{ tab() }}  `enum E { A, B`&#8203;`(), C {} }` | 定义一个变体枚举; 可以是单元`A`、元组`B` &#8203;`()` 和结构体`C{}`. |
+| {{ tab() }}  `enum E { A = 1 }` | 如果所有变体都是单元值，则允许设定**判别式值** {{ ref(page="items/enumerations.html#custom-discriminant-values-for-fieldless-enumerations") }}，例如用于FFI。 |
+| {{ tab() }}  `enum E {}` | 枚举的变量为空 {{ ref(page="glossary.html#uninhabited") }} ，则是不可实例化的，因此不能创建引用，类似于 'never' 类型。 {{ below(target="#miscellaneous") }} {{ esoteric() }} |
+| `union U {}` | 不安全的C风格**联合体** {{ ref(page="items/unions.html") }}，用于兼容FFI。 {{ esoteric() }} |
+| `static X: T = T();`  | `静态` 生命周期**全局变量** {{ book(page="ch19-01-unsafe-rust.html#accessing-or-modifying-a-mutable-static-variable") }} {{ ex(page="custom_types/constants.html#constants") }} {{ ref(page="items/static-items.html#static-items") }}，单一内存空间占用。 |
+| `const X: T = T();`  | 定义**常量**{{ book(page="ch03-01-variables-and-mutability.html#constants") }} {{ ex(page="custom_types/constants.html") }} {{ ref(page="items/constant-items.html") }}，使用时复制到临时变量中。|
+| `let x: T;`  | 在栈上分配`T`大小的字节{{ note( note="1") }}并命名为`x`，分配后不能修改。  |
+| `let mut x: T;`  | 类似于`let`，但是具有**可变性** {{ book(page="ch03-01-variables-and-mutability.html") }} {{ ex(page="variable_bindings/mut.html") }}，允许修改可可变借用。{{ note( note="2") }} |
+| {{ tab() }} `x = y;` | 将`y`移动至`x`。如果y不能 **`Copy`** {{ std(page="std/marker/trait.Copy.html") }}，那么y将不再可用；否则将复制 y。 |
 
 </fixed-2-column>
 
 <footnotes>
 
-<sup>1</sup> **Bound variables** {{ book(page="ch03-01-variables-and-mutability.html") }} {{ ex(page="variable_bindings.html") }} {{ ref(page="variables.html") }} live on stack for synchronous code. In `async {}` they become part of async's state machine, may reside on heap.<br>
-<sup>2</sup> Technically _mutable_ and _immutable_ are misnomer. Immutable binding or shared reference may still contain Cell {{ std(page="std/cell/index.html") }}, giving _interior mutability_.
+<sup>1</sup> **绑定变量** {{ book(page="ch03-01-variables-and-mutability.html") }} {{ ex(page="variable_bindings.html") }} {{ ref(page="variables.html") }} 在同步代码中存在于栈上。 在`async {}`中它们成为异步状态机的一部分，可能分配于堆上。<br>
+<sup>2</sup> 从技术上讲，_可变_ and _不可变_ 描述不准确. 不可变绑定或共享引用可能包含Cell {{ std(page="std/cell/index.html") }}, 提供了 _内部可变性_。
 
 </footnotes>
 
 
 {{ tablesep() }}
 
-Creating and accessing data structures; and some more _sigilic_ types.
+创建和访问数据结构；以及更多的 _sigilic_ 类型。
 
 <fixed-2-column>
 
 | Example | Explanation |
 |---------|-------------|
-| `S { x: y }` | Create `struct S {}` or `use`'ed `enum E::S {}` with field `x` set to `y`. |
-| `S { x }` | Same, but use local variable `x` for field `x`. |
-| `S { ..s }` | Fill remaining fields from `s`, esp. useful with `Default::default()`. {{ std(page="default/trait.Default.html") }} |
-| `S { 0: x }` | Like `S` &#8203;`(x)` below, but set field `.0` with struct syntax.  |
-| `S`&#8203; `(x)` | Create `struct S` &#8203;`(T)` or `use`'ed `enum E::S`&#8203; `()` with field `.0` set to `x`. |
-| `S` | If `S` is unit `struct S;` or `use`'ed `enum E::S` create value of `S`. |
-| `E::C { x: y }` | Create enum variant `C`. Other methods above also work. |
-| `()` | Empty tuple, both literal and type, aka **unit**. {{ std(page="std/primitive.unit.html") }} |
-| `(x)` | Parenthesized expression. |
-| `(x,)` | Single-element **tuple** expression. {{ ex(page="primitives/tuples.html") }} {{ std(page="std/primitive.tuple.html") }} {{ ref(page="expressions/tuple-expr.html") }} |
-| `(S,)` | Single-element tuple type. |
-| `[S]` | Array type of unspec. length, i.e., **slice**. {{ ex(page="primitives/array.html") }} {{ std(page="std/primitive.slice.html") }} {{ ref(page="types/slice.html") }} Can't live on stack. {{ note( note="*") }} |
-| `[S; n]` | **Array type** {{ ex(page="primitives/array.html") }}  {{ std(page="std/primitive.array.html") }} {{ ref(page="types/array.html") }}  of fixed length `n` holding elements of type `S`. |
-| `[x; n]` | **Array instance**  {{ ref(page="expressions/array-expr.html") }} (expression) with `n` copies of `x`. |
-| `[x, y]` | Array instance with given elements `x` and `y`. |
-| `x[0]` | Collection indexing, here w. `usize`. Impl. via [**Index**](https://doc.rust-lang.org/std/ops/trait.Index.html), [**IndexMut**](https://doc.rust-lang.org/std/ops/trait.IndexMut.html). |
-| {{ tab() }} `x[..]` | Same, via range (here _full range_), also `x[a..b]`, `x[a..=b]`, … _c_. below.  |
-| `a..b` | **Right-exclusive range** {{ std(page="std/ops/struct.Range.html") }} {{ ref(page="expressions/range-expr.html") }} creation, e.g., `1..3` means `1, 2`.  |
-| `..b` | Right-exclusive **range to** {{ std(page="std/ops/struct.RangeTo.html") }} without starting point.  |
-| `..=b` | **Inclusive range to** {{ std(page="std/ops/struct.RangeToInclusive.html") }} without starting point.  |
-| `a..=b` | **Inclusive range**, {{ std(page="std/ops/struct.RangeInclusive.html") }} `1..=3` means `1, 2, 3`. |
-| `a..` | **Range from** {{ std(page="std/ops/struct.RangeFrom.html") }} without ending point.  |
-| `..` | **Full range**, {{ std(page="std/ops/struct.RangeFull.html") }} usually means _the whole collection_.   |
-| `s.x` | Named **field access**, {{ ref(page="expressions/field-expr.html") }} might try to [Deref](https://doc.rust-lang.org/std/ops/trait.Deref.html) if `x` not part of type `S`. |
-| `s.0` | Numbered field access, used for tuple types `S` &#8203;`(T)`. |
+| `S { x: y }` | 创建 `结构体(Struct) S {}` 或 使用 `枚举(enum) E::S {}`，并将字段 x 设置为 y。 |
+| `S { x }` | 同上，但是使用局部变量 `x` 作为结构体中字段 `x`。 |
+| `S { ..s }` | 用s填充结构体剩余字段, 常配合`Default::default()`使用。 {{ std(page="std/default/trait.Default.html") }} |
+| `S { 0: x }` | 类似下方的`S`&#8203;`(x)` ，但是用结构体语法设置字段 `.0`。 |
+| `S`&#8203; `(x)` | 创建`结构体(Struct) S` &#8203;`(T)` 或者 使用`枚举(enum) E::S`&#8203; `()`，其中字段`.0`设置为 x。 |
+| `S` | 表示`struct S;` 或者创建`enum E::S`。 |
+| `E::C { x: y }` | 构建枚举变体`C`，上面的其他方法依然有效。 |
+| `()` | 空元组，既是字面量也是类型, 又称**单元(unit)** {{ std(page="std/primitive.unit.html") }}。 |
+| `(x)` | 括号表达式。 |
+| `(x,)` | 单元素 **元组(tuple)** 表达式。 {{ ex(page="primitives/tuples.html") }} {{ std(page="std/primitive.tuple.html") }} {{ ref(page="expressions/tuple-expr.html") }} |
+| `(S,)` | 单元素元组类型。 |
+| `[S]` | 未指明长度的数组类型，如 **切片** {{ ex(page="primitives/array.html") }} {{ std(page="std/primitive.slice.html") }} {{ ref(page="types/slice.html") }}。不能生存在栈上。 {{ note( note="*") }} |
+| `[S; n]` | **数组类型** {{ ex(page="primitives/array.html") }}  {{ std(page="std/primitive.array.html") }} {{ ref(page="types/array.html") }}，元素类型为`S`, 定长为`n`。 |
+| `[x; n]` | 由`n`个`x`的副本构建的 **数组实例** {{ ref(page="expressions/array-expr.html") }}。 |
+| `[x, y]` | 由元素`x`和`y`构成的数组实例。 |
+| `x[0]` | 集合索引，下标类型为`usize`。通过[**Index**](https://doc.rust-lang.org/std/ops/trait.Index.html)、[**IndexMut**](https://doc.rust-lang.org/std/ops/trait.IndexMut.html)实现。|
+| {{ tab() }} `x[..]` | 范围索引（此例为 _全部范围_），同时可参考下方 `x[a..b]`, `x[a..=b]`等等。  |
+| `a..b` | **左闭右开区间** {{ std(page="std/ops/struct.Range.html") }} {{ ref(page="expressions/range-expr.html") }}。例如`1..3`表示`1, 2`。|
+| `..b` | **无起点右开区间** {{ std(page="std/ops/struct.RangeTo.html") }}。  |
+| `..=b` | **无起点右闭区间** {{ std(page="std/ops/struct.RangeToInclusive.html") }}。 |
+| `a..=b` | **闭区间**, {{ std(page="std/ops/struct.RangeInclusive.html") }}。例如`1..=3`表示`1, 2, 3`。 |
+| `a..` | **左闭无终点区间** {{ std(page="std/ops/struct.RangeFrom.html") }}。  |
+| `..` | **全包含区间**{{ std(page="std/ops/struct.RangeFull.html") }}，通常表示 _整个集合_ 。   |
+| `s.x` | 命名 **字段访问**, {{ ref(page="expressions/field-expr.html") }}，如果`x`不是类型`S`的一部分则会尝试[解引用(Deref)](https://doc.rust-lang.org/std/ops/trait.Deref.html)。 |
+| `s.0` | 数字字段访问，用于元组类型`S` &#8203;`(T)`。 |
 
 </fixed-2-column>
 
@@ -337,7 +337,7 @@ Creating and accessing data structures; and some more _sigilic_ types.
 </footnotes>
 
 
-### References & Pointers
+### 引用 & 指针 {#references-pointers}
 
 Granting access to un-owned memory. Also see section on Generics & Constraints.
 
