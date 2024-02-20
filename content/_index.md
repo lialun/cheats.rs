@@ -87,7 +87,7 @@ insert_anchor_links = "right"
 * [类型别名和转换](#type-aliases-and-casts)
 * [宏(Macros) & 属性(Attributes)](#macros-attributes)
 * [模式匹配](#pattern-matching)
-* [泛型与约束](#generics-constraints)
+* [泛型 & 约束](#generics-constraints)
 * [高阶项(Higher-Ranked Items)](#higher-ranked-items){{ esoteric() }}
 * [字符串 & 字符](#strings-chars)
 * [注释(Documentation)](#documentation)
@@ -339,27 +339,26 @@ fn main() {
 
 ### 引用 & 指针 {#references-pointers}
 
-Granting access to un-owned memory. Also see section on Generics & Constraints.
-
+为非所有者内存赋予访问权限。另请参见[泛型 & 约束](#generics-constraints).
 
 <fixed-2-column>
 
 | Example | Explanation |
 |---------|-------------|
-| `&S` | Shared **reference** {{ book(page="ch04-02-references-and-borrowing.html") }} {{ std(page="std/primitive.reference.html") }} {{ nom(page="references.html")}} {{ ref(page="types.html#pointer-types")}} (type; space for holding _any_ `&s`). |
-| {{ tab() }} `&[S]` | Special slice reference that contains (`address`, `count`). |
-| {{ tab() }} `&str` | Special string slice reference that contains (`address`, `byte_length`). |
-| {{ tab() }} `&mut S` | Exclusive reference to allow mutability (also `&mut [S]`, `&mut dyn S`, &hellip;). |
-| {{ tab() }} `&dyn T` | Special **trait object** {{ book(page="ch17-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types") }} reference that contains (`address`, `vtable`). |
-| `&s` | Shared **borrow** {{ book(page="ch04-02-references-and-borrowing.html") }} {{ ex(page="scope/borrow.html") }} {{ std(page="std/borrow/trait.Borrow.html") }} (e.g., addr., len, vtable, &hellip; of _this_ `s`, like `0x1234`). |
-| {{ tab() }} `&mut s` | Exclusive borrow that allows **mutability**. {{ ex(page="scope/borrow/mut.html") }} |
-| `*const S` | Immutable **raw pointer type** {{ book(page="ch19-01-unsafe-rust.html#dereferencing-a-raw-pointer") }} {{ std(page="std/primitive.pointer.html") }} {{ ref(page="types.html#raw-pointers-const-and-mut") }} w/o memory safety. |
-| {{ tab() }} `*mut S` | Mutable raw pointer type w/o memory safety. |
-| {{ tab() }} `&raw const s` | Create raw pointer w/o going through ref.; _c_. `ptr:addr_of!()` {{ std(page="std/ptr/macro.addr_of.html") }} {{ experimental() }} {{ esoteric() }}  |
-| {{ tab() }} `&raw mut s` | Same, but mutable. {{ experimental() }} Needed for unaligned, packed fields. {{ esoteric() }} |
-| `ref s` | **Bind by reference**, {{ ex(page="scope/borrow/ref.html") }} makes binding reference type. {{ deprecated() }}|
-| {{ tab() }} `let ref r = s;` | Equivalent to `let r = &s`. |
-| {{ tab() }} `let S { ref mut x } = s;` | Mut. ref binding (`let x = &mut s.x`), shorthand destructuring {{ below( target = "#pattern-matching") }} version. |
+| `&S` | 共享**引用** {{ book(page="ch04-02-references-and-borrowing.html") }} {{ std(page="std/primitive.reference.html") }} {{ nom(page="references.html")}} {{ ref(page="types.html#pointer-types")}} (type; space for holding _any_ `&s`). |
+| {{ tab() }} `&[S]` | 特殊的切片引用，包含地址、元素计数。|
+| {{ tab() }} `&str` | 特殊的字符串切片引用，包含地址、字节数。 |
+| {{ tab() }} `&mut S` | 允许修改的独占引用 (也包括 `&mut [S]`, `&mut dyn S`, &hellip;). |
+| {{ tab() }} `&dyn T` | 特殊的 **特征(trait)对象** {{ book(page="ch17-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types") }} 引用，包含`地址(address)`和`虚表(vtable)`。 |
+| `&s` | 共享**借用** {{ book(page="ch04-02-references-and-borrowing.html") }} {{ ex(page="scope/borrow.html") }} {{ std(page="std/borrow/trait.Borrow.html") }} (例如该`s`的地址、长度、虚表(vtable)等，如`0x1234`). |
+| {{ tab() }} `&mut s` | 具有**可变性**的独占借用。 {{ ex(page="scope/borrow/mut.html") }} |
+| `*const S` | 不可变的 **原始指针类型** {{ book(page="ch19-01-unsafe-rust.html#dereferencing-a-raw-pointer") }} {{ std(page="std/primitive.pointer.html") }} {{ ref(page="types.html#raw-pointers-const-and-mut") }}，无内存安全。 |
+| {{ tab() }} `*mut S` | 可变原始指针类型，无内存安全。|
+| {{ tab() }} `&raw const s` | 不通过引用创建原始类型；见`ptr:addr_of!()` {{ std(page="std/ptr/macro.addr_of.html") }} {{ experimental() }} {{ esoteric() }}  |
+| {{ tab() }} `&raw mut s` | 不同，区别为可变。 {{ experimental() }} 用户未对齐的包装字段。 {{ esoteric() }} |
+| `ref s` | **引用绑定**，{{ ex(page="scope/borrow/ref.html") }} 创建绑定的引用类型。 {{ deprecated() }}|
+| {{ tab() }} `let ref r = s;` | 等价于 `let r = &s`. |
+| {{ tab() }} `let S { ref mut x } = s;` | 可变引用绑定 (`let x = &mut s.x`)，解构{{ below( target = "#pattern-matching") }}的简写。 |
 | `*r` | **Dereference** {{ book(page="ch15-02-deref.html") }} {{ std(page="std/ops/trait.Deref.html") }} {{ nom(page="vec-deref.html") }} a reference `r` to access what it points to. |
 | {{ tab() }} `*r = s;` | If `r` is a mutable reference, move or copy `s` to target memory. |
 | {{ tab() }} `s = *r;` | Make `s` a copy of whatever `r` references, if that is `Copy`. |
@@ -649,7 +648,7 @@ Pattern matching arms in `match` expressions. Left side of these arms can also b
 
 
 
-### Generics & Constraints
+### 泛型 & 约束 {#generics-constraints}
 
 Generics combine with type constructors, traits and functions to give your users more flexibility.
 
